@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:leancloud_storage/leancloud.dart';
+import 'package:firm/util.dart';
 
 void main() {
+  loadConfig().then((config) {
+    LeanCloud.initialize(
+      '{{${config.appid}}}',
+      '{{${config.appkey}}}',
+      server: config.domain,
+      queryCache: new LCQueryCache(),
+    );
+    LCLogger.setLevel(LCLogger.DebugLevel);
+  });
   runApp(MyApp());
 }
 

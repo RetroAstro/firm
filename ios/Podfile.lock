@@ -1,0 +1,57 @@
+PODS:
+  - Alamofire (5.4.1)
+  - Flutter (1.0.0)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - LeanCloud/Foundation (17.6.9):
+    - Alamofire (~> 5.3)
+  - LeanCloud/RTM-no-local-storage (17.6.9):
+    - LeanCloud/Foundation (= 17.6.9)
+    - SwiftProtobuf (~> 1.13)
+  - leancloud_official_plugin (0.0.1):
+    - Flutter
+    - LeanCloud/RTM-no-local-storage (~> 17.6)
+  - shared_preferences (0.0.1):
+    - Flutter
+  - sqflite (0.0.2):
+    - Flutter
+    - FMDB (>= 2.7.5)
+  - SwiftProtobuf (1.15.0)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - leancloud_official_plugin (from `.symlinks/plugins/leancloud_official_plugin/ios`)
+  - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
+  - sqflite (from `.symlinks/plugins/sqflite/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - FMDB
+    - LeanCloud
+    - SwiftProtobuf
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  leancloud_official_plugin:
+    :path: ".symlinks/plugins/leancloud_official_plugin/ios"
+  shared_preferences:
+    :path: ".symlinks/plugins/shared_preferences/ios"
+  sqflite:
+    :path: ".symlinks/plugins/sqflite/ios"
+
+SPEC CHECKSUMS:
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  LeanCloud: e7d7faac3093f1002f6b2e56b10a72d8a8c3cb71
+  leancloud_official_plugin: 4fa7330f9e7310280bb3494848a982bc37cce5f0
+  shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
+  sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
+  SwiftProtobuf: 3320217e9d8fb75f36b40282e78c482640fd75dd
+
+PODFILE CHECKSUM: 54c92ae724292d2039df4b5b1bbeb7d8176aec1d
+
+COCOAPODS: 1.10.1
