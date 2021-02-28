@@ -15,21 +15,21 @@
     },
     {
       "name": "args",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/args-2.0.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/args-1.6.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.3"
     },
     {
       "name": "async",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/async-2.5.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/async-2.5.0-nullsafety.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "boolean_selector",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0-nullsafety.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "build",
@@ -45,15 +45,15 @@
     },
     {
       "name": "characters",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/characters-1.1.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/characters-1.1.0-nullsafety.3",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "charcode",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/charcode-1.2.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/charcode-1.2.0-nullsafety.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "checked_yaml",
@@ -63,21 +63,21 @@
     },
     {
       "name": "cli_util",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/cli_util-0.3.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/cli_util-0.2.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.0"
     },
     {
       "name": "clock",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0-nullsafety.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "collection",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0-nullsafety.3",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "convert",
@@ -90,12 +90,6 @@
       "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/crypto-2.1.5",
       "packageUri": "lib/",
       "languageVersion": "2.3"
-    },
-    {
-      "name": "cupertino_icons",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
     },
     {
       "name": "dart_style",
@@ -117,9 +111,9 @@
     },
     {
       "name": "fake_async",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0-nullsafety.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "ffi",
@@ -129,33 +123,33 @@
     },
     {
       "name": "file",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/file-6.1.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/file-5.2.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.2"
     },
     {
       "name": "flutter",
       "rootUri": "file:///Users/retroastro/Documents/flutter/packages/flutter",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "flutter_test",
       "rootUri": "file:///Users/retroastro/Documents/flutter/packages/flutter_test",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.2"
     },
     {
       "name": "flutter_web_plugins",
       "rootUri": "file:///Users/retroastro/Documents/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.0"
     },
     {
       "name": "glob",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/glob-2.0.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/glob-1.2.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.1"
     },
     {
       "name": "http_parser",
@@ -165,15 +159,15 @@
     },
     {
       "name": "intl",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/intl-0.16.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.5"
     },
     {
       "name": "js",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/js-0.6.3",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/js-0.6.2",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.0"
     },
     {
       "name": "json_annotation",
@@ -201,21 +195,33 @@
     },
     {
       "name": "logging",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/logging-1.0.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/logging-0.11.4",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.0"
     },
     {
       "name": "matcher",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.10",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.10-nullsafety.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "meta",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/meta-1.3.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/meta-1.3.0-nullsafety.3",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
+    },
+    {
+      "name": "node_interop",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/node_interop-1.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.9"
+    },
+    {
+      "name": "node_io",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/node_io-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
     },
     {
       "name": "package_config",
@@ -225,9 +231,9 @@
     },
     {
       "name": "path",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/path-1.8.0-nullsafety.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "path_provider_linux",
@@ -249,15 +255,15 @@
     },
     {
       "name": "pedantic",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/pedantic-1.10.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/pedantic-1.9.2",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.1"
     },
     {
       "name": "platform",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/platform-3.0.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/platform-2.2.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "1.24"
     },
     {
       "name": "plugin_platform_interface",
@@ -267,15 +273,15 @@
     },
     {
       "name": "process",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/process-4.1.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/process-3.0.13",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.0"
     },
     {
       "name": "pub_semver",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/pub_semver-2.0.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/pub_semver-1.4.4",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.0"
     },
     {
       "name": "pubspec_parse",
@@ -329,7 +335,7 @@
       "name": "sky_engine",
       "rootUri": "file:///Users/retroastro/Documents/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "1.11"
     },
     {
       "name": "source_gen",
@@ -339,9 +345,9 @@
     },
     {
       "name": "source_span",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.1",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.0-nullsafety.2",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "sqflite",
@@ -357,21 +363,21 @@
     },
     {
       "name": "stack_trace",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0-nullsafety.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "stream_channel",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0-nullsafety.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "string_scanner",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0-nullsafety.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "synchronized",
@@ -381,33 +387,33 @@
     },
     {
       "name": "term_glyph",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0-nullsafety.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "test_api",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/test_api-0.2.19",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/test_api-0.2.19-nullsafety.2",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "typed_data",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0-nullsafety.3",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "vector_math",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.0-nullsafety.3",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.10"
     },
     {
       "name": "watcher",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/watcher-1.0.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/watcher-0.9.7+15",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.2"
     },
     {
       "name": "win32",
@@ -423,9 +429,9 @@
     },
     {
       "name": "yaml",
-      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/yaml-3.1.0",
+      "rootUri": "file:///Users/retroastro/.pub-cache/hosted/pub.dartlang.org/yaml-2.2.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.4"
     },
     {
       "name": "firm",
@@ -434,7 +440,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-02-27T13:06:31.810822Z",
+  "generated": "2021-02-28T06:48:38.547223Z",
   "generator": "pub",
-  "generatorVersion": "2.13.0-52.0.dev"
+  "generatorVersion": "2.10.5"
 }

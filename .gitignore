@@ -3,9 +3,11 @@
 .idea
 .packages
 .pub/
+.dart_tool/
 build/
 ios/.generated/
 packages
 pubspec.lock
 config.json
 .flutter-plugins
+.flutter-plugins-dependencies

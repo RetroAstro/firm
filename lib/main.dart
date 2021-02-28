@@ -3,16 +3,16 @@ import 'package:leancloud_storage/leancloud.dart';
 import 'package:firm/util.dart';
 
 void main() {
+  runApp(MyApp());
   loadConfig().then((config) {
     LeanCloud.initialize(
-      '{{${config.appid}}}',
-      '{{${config.appkey}}}',
+      config.appid,
+      config.appkey,
       server: config.domain,
       queryCache: new LCQueryCache(),
     );
     LCLogger.setLevel(LCLogger.DebugLevel);
   });
-  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
