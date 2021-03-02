@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:leancloud_storage/leancloud.dart';
 import 'package:firm/utils/load_config.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(FirmApp());
   loadConfig().then((config) {
     LeanCloud.initialize(
       config.appid,
@@ -15,7 +16,7 @@ void main() {
   });
 }
 
-class MyApp extends StatelessWidget {
+class FirmApp extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,24 +29,25 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title}) : super(key: key);
-
+class HomePage extends HookWidget {
   final String title;
 
-  @override
-  _HomePageState createState() => _HomePageState();
-}
+  HomePage({this.title});
 
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final counter = useState(0);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(title),
       ),
       body: Center(
-        child: Container(),
+        child: Text('Button tapped ${counter.value} times'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => counter.value++,
+        child: Icon(Icons.add),
       ),
     );
   }
