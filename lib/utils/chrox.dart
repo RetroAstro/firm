@@ -35,7 +35,7 @@ Function compose(List<Middleware> middlewares) {
   return (Context ctx) {
     int index = -1;
 
-    Future dispatch() async {
+    Future<void> dispatch() async {
       index++;
       if (index < middlewares.length) {
         final middleware = middlewares[index];
