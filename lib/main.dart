@@ -16,7 +16,7 @@ void main() {
   });
 }
 
-class FirmApp extends HookWidget {
+class FirmApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
