@@ -24,11 +24,11 @@ Future<void> loginByUsernamePassword(String username, String password) async {
 }
 
 Future<void> loginByEmailPassword(String email, String password) async {
-  await LCUser.login(email, password);
+  await LCUser.loginByEmail(email, password);
 }
 
 Future<void> loginByMobilePassword(String mobile, String password) async {
-  await LCUser.login(mobile, password);
+  await LCUser.loginByMobilePhoneNumber(mobile, password);
 }
 
 Future<void> requestLoginSMSCode(String mobile) async {
