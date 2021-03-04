@@ -8,7 +8,7 @@ class CloudSDK {
 }
 
 class RegisterErrorHandler {
-  final Map<int, Function> handler = Map();
+  final Map<int, Function> handler = {};
 
   RegisterErrorHandler() {
     handler[202] = usernameError;
