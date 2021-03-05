@@ -62,3 +62,11 @@ Future<void> resetPasswordBySMSCode(
 Future<LCUser> currentUser() async {
   return await LCUser.getCurrent();
 }
+
+void test(String userId) async {
+  LCFriendship.request(userId);
+  LCQuery<LCObject> query = LCQuery('_FriendshipRequest');
+  query.whereEqualTo('status', 'pending');
+  List<LCFriendshipRequest> requests = await query.find();
+  requests.forEach((request) => LCFriendship.acceptRequest(request));
+}

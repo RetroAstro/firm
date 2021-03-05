@@ -11,3 +11,15 @@ pubspec.lock
 config.json
 .flutter-plugins
 .flutter-plugins-dependencies
+
+# leancloud engine
+node_modules
+package-lock.json
+npm-debug.log
+start.sh
+.avoscloud
+.leancloud
+
+# VIM
+*~
+*.swp
