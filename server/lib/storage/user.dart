@@ -63,10 +63,80 @@ Future<LCUser> currentUser() async {
   return await LCUser.getCurrent();
 }
 
-void test(String userId) async {
-  LCFriendship.request(userId);
+Future<LCUser> searchUserByUsername(String username) async {
+  final res = await LCCloud.rpc(
+    'searchUserByUsername',
+    params: {'username': username},
+  );
+  if (res is String && res == 'empty') {
+    return null;
+  }
+  return res;
+}
+
+Future<List<LCUser>> searchUserByUserId(List<String> userIds) async {
+  return await LCCloud.rpc('searchUserByUserId', params: {'userIds': userIds});
+}
+
+Future<void> requestFriendship(
+  String userId,
+  String remark,
+  String group,
+) async {
+  await LCFriendship.request(userId, attributes: {
+    'remark': remark,
+    'group': group,
+  });
+}
+
+Future<List<LCUser>> friendshipRequest() async {
+  LCQuery<LCObject> query = LCQuery('_FriendshipRequest');
+  List<LCFriendshipRequest> requests =
+      await query.whereEqualTo('status', 'pending').find();
+  List<String> userIds = requests.map((item) => item.objectId).toList();
+  return await searchUserByUserId(userIds);
+}
+
+Future<void> acceptFriendshipRequest(String userId) async {
   LCQuery<LCObject> query = LCQuery('_FriendshipRequest');
   query.whereEqualTo('status', 'pending');
   List<LCFriendshipRequest> requests = await query.find();
-  requests.forEach((request) => LCFriendship.acceptRequest(request));
+  requests.forEach((request) {
+    if (request.objectId == userId) {
+      LCFriendship.acceptRequest(request);
+    }
+  });
+}
+
+Future<void> declineFriendshipRequest(String userId) async {
+  LCQuery<LCObject> query = LCQuery('_FriendshipRequest');
+  query.whereEqualTo('status', 'pending');
+  List<LCFriendshipRequest> requests = await query.find();
+  requests.forEach((request) {
+    if (request.objectId == userId) {
+      LCFriendship.declineRequest(request);
+    }
+  });
+}
+
+Future<List<LCUser>> getFriendList() async {
+  LCQuery<LCObject> query = LCQuery('_Followee');
+  query
+      .whereEqualTo('user', await currentUser())
+      .whereEqualTo('friendStatus', true);
+  List<LCObject> friends = await query.find();
+  List<String> userIds = friends.map((item) => item.objectId).toList();
+  return await searchUserByUserId(userIds);
+}
+
+Future<void> setFriendProps(String userId, String remark, String group) async {
+  LCObject followee = LCObject.createWithoutData('_Followee', userId);
+  followee['remark'] = remark;
+  followee['group'] = group;
+  await followee.save();
+}
+
+Future<void> deleteFriend(String userId) async {
+  LCUser user = await currentUser();
+  await user.unfollow(userId);
 }
