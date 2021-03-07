@@ -43,7 +43,7 @@ class HomePage extends HookWidget {
         title: Text(title),
       ),
       body: Center(
-        child: Text('Button tapped ${counter.value} times'),
+        child: Text('${counter.value}'),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => counter.value++,
