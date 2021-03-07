@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 import 'package:leancloud_storage/leancloud.dart';
 
 Future<void> register({
@@ -14,7 +15,11 @@ Future<void> register({
     ..password = password
     ..email = email
     ..mobile = mobile;
+
   user['gender'] = gender;
+  user['nickname'] = username;
+  user['company'] = '';
+  user['avatar'] = LCFile();
 
   await user.signUp();
 }
@@ -139,4 +144,44 @@ Future<void> setFriendProps(String userId, String remark, String group) async {
 Future<void> deleteFriend(String userId) async {
   LCUser user = await currentUser();
   await user.unfollow(userId);
+}
+
+Future<void> setAvatar(String name, String path) async {
+  LCFile file = await uploadFile(name, path, (_, __) {});
+  LCUser user = await currentUser();
+  user['avatar'] = file;
+  await user.save();
+}
+
+Future<void> setNickname(String nickname) async {
+  LCUser user = await currentUser();
+  user['nickname'] = nickname;
+  await user.save();
+}
+
+Future<void> setCompany(String company) async {
+  LCUser user = await currentUser();
+  user['company'] = company;
+  await user.save();
+}
+
+Future<LCFile> uploadFile(
+  String fileName,
+  dynamic data,
+  Function(int count, int total) callback,
+) async {
+  LCFile file;
+  if (data is String) {
+    file = await LCFile.fromPath(fileName, data);
+  }
+  if (data is Uint8List) {
+    file = LCFile.fromBytes(fileName, data);
+  }
+  await file.save(onProgress: callback);
+  return file;
+}
+
+Future<void> deleteFile(String fileId) async {
+  LCFile file = LCObject.createWithoutData('_File', fileId);
+  await file.delete();
 }

@@ -52,7 +52,7 @@ app.use(function (err, req, res, next) {
     console.error(err.stack || err);
   }
   if (req.timedout) {
-    console.error('Request timeout: url=%s, timeout=%d, please check whether its execution time is too long, or the response callback is invalid.', req.originalUrl, err.timeout);
+    console.error('Request timeout: url=%s, timeout=%d.', req.originalUrl, err.timeout);
   }
   res.status(statusCode);
   var error = {};
