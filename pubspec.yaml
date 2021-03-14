@@ -30,6 +30,7 @@ flutter:
 
   assets:
     - config.json
+    - assets/
   #   - images/a_dot_burr.jpeg
 
   # fonts:
