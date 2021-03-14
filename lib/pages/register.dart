@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:firm/utils/util.dart';
 
-class User {
+class RegisterInfo {
   String username;
   String password;
   String email;
@@ -31,16 +32,16 @@ class RegisterPage extends HookWidget {
 
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
 
-  User _user = User();
+  final RegisterInfo _registerInfo = RegisterInfo();
 
-  void hanleSubmmited() {
+  void handleSubmmited() {
     final form = _formKey.currentState;
     if (!form.validate()) {
       _autovalidateMode = AutovalidateMode.always;
     } else {
       form.save();
       print(
-        '[User JSON]: ${_user.username} : ${_user.password} : ${_user.email} : ${_user.phone}',
+        '[User JSON]: ${_registerInfo.username} : ${_registerInfo.password} : ${_registerInfo.email} : ${_registerInfo.phone}',
       );
     }
   }
@@ -81,7 +82,7 @@ class RegisterPage extends HookWidget {
                   labelText: '昵称',
                 ),
                 onSaved: (value) {
-                  _user.username = value;
+                  _registerInfo.username = value;
                   list.password.requestFocus();
                 },
                 onFieldSubmitted: (_) {},
@@ -140,7 +141,7 @@ class RegisterPage extends HookWidget {
                   return null;
                 },
                 onSaved: (value) {
-                  _user.password = value;
+                  _registerInfo.password = value;
                   list.email.requestFocus();
                 },
                 onFieldSubmitted: (_) {},
@@ -155,7 +156,7 @@ class RegisterPage extends HookWidget {
                   labelText: '邮箱',
                 ),
                 onSaved: (value) {
-                  _user.email = value;
+                  _registerInfo.email = value;
                   list.phone.requestFocus();
                 },
                 onFieldSubmitted: (_) {},
@@ -163,10 +164,7 @@ class RegisterPage extends HookWidget {
                   if (value.isEmpty || value == null) {
                     return '邮箱不能为空';
                   }
-                  String regexEmail =
-                      "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*\$";
-                  bool isEmail = RegExp(regexEmail).hasMatch(value);
-                  if (!isEmail) {
+                  if (!isEmail(value)) {
                     return '邮箱格式不正确';
                   }
                   return null;
@@ -183,7 +181,7 @@ class RegisterPage extends HookWidget {
                 ),
                 keyboardType: TextInputType.phone,
                 onSaved: (value) {
-                  _user.phone = value;
+                  _registerInfo.phone = value;
                   list.phone.unfocus();
                 },
                 onFieldSubmitted: (_) {},
@@ -192,10 +190,7 @@ class RegisterPage extends HookWidget {
                   if (value.isEmpty || value == null) {
                     return '电话号码不能为空';
                   }
-                  String regexPhone =
-                      '^((13[0-9])|(15[^4])|(166)|(17[0-8])|(18[0-9])|(19[8-9])|(147,145))\\d{8}\$';
-                  bool isPhone = RegExp(regexPhone).hasMatch(value);
-                  if (!isPhone) {
+                  if (!isPhone(value)) {
                     return '电话号码格式不正确';
                   }
                   return null;
@@ -204,8 +199,8 @@ class RegisterPage extends HookWidget {
               sizedBoxSpace,
               Center(
                 child: ElevatedButton(
-                  onPressed: hanleSubmmited,
-                  child: Text('提交'),
+                  onPressed: handleSubmmited,
+                  child: Text('确认'),
                 ),
               ),
               sizedBoxSpace,

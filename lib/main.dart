@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:leancloud_storage/leancloud.dart';
 import 'package:firm/utils/load_config.dart';
 import 'package:firm/pages/register.dart';
+import 'package:firm/pages/login.dart';
 
 void main() {
   runApp(FirmApp());
@@ -22,7 +23,7 @@ class FirmApp extends StatelessWidget {
     return MaterialApp(
       title: 'firm',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: RegisterPage(),
+      home: LoginPage(),
     );
   }
 }
