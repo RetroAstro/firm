@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 class Conversation extends StatelessWidget {
   Conversation({Key key}) : super(key: key);
 
-  bool isChat;
+  final bool isChat = false;
 
   @override
   Widget build(BuildContext context) {
