@@ -13,7 +13,7 @@ class ConversationItem extends StatelessWidget {
     Key key,
     this.conversation,
     this.onConversationTapped,
-    @required this.isActive,
+    this.isActive,
   }) : super(key: key);
 
   @override

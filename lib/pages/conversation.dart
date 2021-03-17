@@ -31,6 +31,7 @@ class Conversation extends StatelessWidget {
                       state.conversations[index].nickName,
                     );
                   },
+                  isActive: state.conversations[index].active,
                 ),
                 dismissal: SlidableDismissal(
                   closeOnCanceled: false,

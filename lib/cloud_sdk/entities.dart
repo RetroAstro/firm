@@ -73,13 +73,13 @@ class ConversationEntity {
 }
 
 class UserEntity {
+  String avatar;
   String userName;
   String nickName;
-  String userAvatar;
 
   UserEntity({
+    @required this.avatar,
     @required this.userName,
     @required this.nickName,
-    @required this.userAvatar,
   });
 }
