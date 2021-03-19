@@ -84,11 +84,11 @@ class ChatService with ChangeNotifier {
   }
 
   void sendTextMessage(String content) {
-    // alitaSDK.sendTextMessage(_currentChat, content);
+    // sendTextMessage(_currentChat, content);
   }
 
   void sendVoiceMessage({String filePath, int voiceLength}) {
-    // alitaSDK.sendVoiceMessage(_currentChat, filePath, voiceLength);
+    // sendVoiceMessage(_currentChat, filePath, voiceLength);
   }
 
   void receiveMessage(MessageEntity msg) {
