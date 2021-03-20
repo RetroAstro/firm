@@ -5,9 +5,7 @@ import 'package:firm/services/index.dart';
 import 'package:provider/provider.dart';
 
 class Conversation extends StatelessWidget {
-  Conversation({Key key}) : super(key: key);
-
-  final bool isChat = false;
+  const Conversation({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +42,7 @@ class Conversation extends StatelessWidget {
                 ),
                 actionPane: SlidableDrawerActionPane(),
                 actionExtentRatio: 0.2,
-                secondaryActions:
-                    isChat ? [] : [buildDeleteButton(index, state)],
+                secondaryActions: [buildDeleteButton(index, state)],
               );
             },
           ),

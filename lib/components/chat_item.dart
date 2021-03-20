@@ -32,7 +32,7 @@ class ChatItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(6),
       child: (chatitem.avatar == 'default' && !isSender)
           ? Image.asset(
-              'assets/icon/default.png',
+              'assets/icon/default_avatar.png',
               width: 42,
               height: 42,
               fit: BoxFit.cover,
@@ -57,8 +57,10 @@ class ChatItem extends StatelessWidget {
               ? Container()
               : Text(
                   chatitem.nickName,
-                  style:
-                      TextStyle(fontSize: 12, color: AppColors.AppTextGColor),
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: AppColors.AppTextGColor,
+                  ),
                 ),
           widgetMap[chatitem.msgType](chatitem) ?? buildUnknownItem(chatitem),
         ],

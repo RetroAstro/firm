@@ -51,7 +51,7 @@ Widget buildRichText(List<String> list) {
 Widget buildImageItem(MessageEntity chatitem) {
   if (chatitem.imgUrl == '') {
     return Image.asset(
-      'assets/icon/placeholder.png',
+      'assets/placeholder.png',
       width: 150,
       height: 150,
       fit: BoxFit.cover,
@@ -113,7 +113,7 @@ Widget buildImageItem(MessageEntity chatitem) {
 
 Widget buildVoiceItem(MessageEntity chatitem) {
   var text = Text(
-    '${chatitem.voiceLength}"',
+    '${chatitem.voiceLength}',
     style: TextStyle(fontSize: 18),
   );
   return GestureDetector(
@@ -131,14 +131,14 @@ Widget buildVoiceItem(MessageEntity chatitem) {
           chatitem.isSender
               ? text
               : SvgPicture.asset(
-                  'assets/icon/voice-left.svg',
+                  'assets/voice_left.svg',
                   width: 16,
                   height: 16,
                   fit: BoxFit.cover,
                 ),
           chatitem.isSender
               ? SvgPicture.asset(
-                  'assets/icon/voice-right.svg',
+                  'assets/voice_right.svg',
                   width: 16,
                   height: 16,
                   fit: BoxFit.cover,

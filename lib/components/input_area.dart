@@ -20,17 +20,21 @@ class InputArea extends StatelessWidget {
     return Container(
       padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
       decoration: BoxDecoration(
-          color: AppColors.InputBgColor,
-          border: Border(
-              top: BorderSide(
-                  width: 0.5, color: Color(AppColors.DividerColor)))),
+        color: AppColors.InputBgColor,
+        border: Border(
+          top: BorderSide(
+            width: 0.5,
+            color: Color(AppColors.DividerColor),
+          ),
+        ),
+      ),
       child: Row(
         children: <Widget>[
           GestureDetector(
             child: Container(
               margin: EdgeInsets.only(right: 15),
               child: SvgPicture.asset(
-                'assets/icon/record.svg',
+                'assets/record.svg',
                 width: 30,
                 height: 30,
                 fit: BoxFit.cover,
