@@ -10,11 +10,16 @@ class CloudSDK {
   Map<String, String> _avatarMap = {};
   Map<String, String> get avatarMap => _avatarMap;
 
-  UserEntity _userInfo;
+  UserEntity _userInfo = UserEntity(
+    avatar: 'default',
+    userName: 'Alice',
+    nickName: '王五',
+  );
+
   UserEntity get userInfo => _userInfo;
 
   Future<List<ConversationEntity>> fetchConversationList() async {
-    var list = [];
+    List<ConversationEntity> list = [];
     for (var i = 0; i < 10; i++) {
       list.add(
         ConversationEntity(
@@ -39,7 +44,7 @@ class CloudSDK {
     String username,
     int msgId = 0,
   }) async {
-    var list = [];
+    List<MessageEntity> list = [];
     for (var i = 0; i < 10; i++) {
       list.add(
         MessageEntity(
