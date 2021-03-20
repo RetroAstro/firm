@@ -3,11 +3,36 @@ import 'package:leancloud_storage/leancloud.dart';
 import 'package:server/storage/user.dart';
 
 part 'entities.dart';
+part 'middlewares.dart';
+part 'translator.dart';
 
 class CloudSDK {
-  final String username;
+  Map<String, String> _avatarMap = {};
+  Map<String, String> get avatarMap => _avatarMap;
 
-  CloudSDK({this.username});
+  UserEntity _userInfo;
+  UserEntity get userInfo => _userInfo;
+
+  Future<List<ConversationEntity>> fetchConversationList() async {}
+
+  Future<List<MessageEntity>> fetchMessageList({
+    String username,
+    int msgId = 0,
+  }) async {}
+
+  Future<void> sendTextMessage(String username, String content) async {}
+
+  Future<void> sendImageMessage(String name, String path) async {}
+
+  Future<void> sendVoiceMessage(
+    String username,
+    String filePath,
+    int voiceLength,
+  ) async {}
+
+  Future<void> deleteConversation(String conversationName) async {}
+
+  Future<void> markConversationRead(String username) async {}
 }
 
 class RegisterErrorHandler {
@@ -32,3 +57,5 @@ void test() {
     }
   });
 }
+
+final CloudSDK cloudSDK = CloudSDK();

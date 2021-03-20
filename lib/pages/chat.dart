@@ -60,7 +60,7 @@ class _ChatState extends State<Chat> {
                 final item = chatItems[index];
                 Widget timeWidget = SizedBox.shrink();
                 if (index == chatItems.length - 1) {
-                  chatService.fetchHistory(createTime: item.createTime);
+                  chatService.fetchHistory(item.msgId);
                   timeWidget = _buildTimeWidget(item.createTimeFormat);
                 } else {
                   // 当与上一条 msg createTime 相差 5分钟时 显示时间

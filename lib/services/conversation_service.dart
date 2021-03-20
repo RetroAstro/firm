@@ -6,7 +6,7 @@ class ConversationService with ChangeNotifier {
 
   List<ConversationEntity> get conversations => _conversations;
 
-  cancelPrevActive(bool isChat) {
+  void cancelPrevActive(bool isChat) {
     if (_prevIndex != -1 && !isChat) {
       _conversations[_prevIndex].active = false;
       _prevIndex = -1;
@@ -14,13 +14,13 @@ class ConversationService with ChangeNotifier {
     }
   }
 
-  clearConversations() {
+  void clearConversations() {
     _conversations = [];
     _prevIndex = -1;
     notifyListeners();
   }
 
-  tapConversation(String conversationName) {
+  void tapConversation(String conversationName) {
     var index = 0;
     for (var i = 0; i < _conversations.length; i++) {
       if (_conversations[i].conversationName == conversationName) {
@@ -39,31 +39,30 @@ class ConversationService with ChangeNotifier {
     notifyListeners();
   }
 
-  Future fetchConversationList(dynamic val) async {
+  Future<void> fetchConversationList() async {
     _conversations = [];
-    // fetchConversationList()
-    final List<ConversationEntity> list = [];
+    final list = await cloudSDK.fetchConversationList();
     list.forEach((item) {
-      if (item.conversationName != 'userName') {
+      if (item.conversationName != cloudSDK.userInfo.userName) {
         _conversations.add(item);
       }
     });
     notifyListeners();
   }
 
-  Future removeConversation(int index, String conversationName) async {
-    // deleteConversation(conversationName);
+  Future<void> removeConversation(int index, String conversationName) async {
+    await cloudSDK.deleteConversation(conversationName);
     _conversations.removeAt(index);
     notifyListeners();
   }
 
-  markConversationRead(String username) {
+  void markConversationRead(String username) {
     if (username.isNotEmpty) {
-      // markConversationRead(username);
+      cloudSDK.markConversationRead(username);
     }
   }
 
-  updateProps(ConversationEntity prev, ConversationEntity next) {
+  void updateProps(ConversationEntity prev, ConversationEntity next) {
     prev
       ..msgType = next.msgType
       ..avatar = next.avatar
@@ -74,8 +73,8 @@ class ConversationService with ChangeNotifier {
       ..richTextList = next.richTextList;
   }
 
-  updateConversation(ConversationEntity conversation) {
-    if (conversation.conversationName == 'userName') {
+  void updateConversation(ConversationEntity conversation) {
+    if (conversation.conversationName == cloudSDK.userInfo.userName) {
       return;
     }
     if (conversation.unreadCount == 0) {
@@ -109,11 +108,11 @@ class ConversationService with ChangeNotifier {
     notifyListeners();
   }
 
-  setConversationUpdateListener() {
+  void setConversationUpdateListener() {
     // setConversationUpdateListener();
   }
 
-  stopListenConversationManager() {
+  void stopListenConversationManager() {
     // stopListenConversationManager();
   }
 }

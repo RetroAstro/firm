@@ -3,6 +3,7 @@ import 'package:leancloud_storage/leancloud.dart';
 import 'package:firm/utils/load_config.dart';
 import 'package:firm/pages/register.dart';
 import 'package:firm/pages/login.dart';
+import 'package:firm/pages/conversation.dart';
 
 void main() {
   runApp(FirmApp());

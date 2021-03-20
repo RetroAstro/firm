@@ -38,7 +38,7 @@ class ChatItem extends StatelessWidget {
               fit: BoxFit.cover,
             )
           : Image.network(
-              isSender ? 'user avatar' : chatitem.avatar,
+              isSender ? cloudSDK.userInfo.avatar : chatitem.avatar,
               width: 42,
               height: 42,
               fit: BoxFit.cover,

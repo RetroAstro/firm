@@ -63,17 +63,15 @@ class ChatService with ChangeNotifier {
   Future fetchMessageList() async {
     if (_chatMap[_currentChat] != null && _chatMap[_currentChat].isEmpty) {
       isFetching = true;
-      // fetchMessageList(username: _currentChat)
-      final List<MessageEntity> list = [];
+      final list = await cloudSDK.fetchMessageList(username: _currentChat);
       isFetching = false;
       _chatMap[_currentChat].addAll(list);
     }
   }
 
-  Future<bool> fetchHistory({int createTime}) async {
-    // fetchMessageList(username: _currentChat, createTime: createTime)
-    final List<MessageEntity> list = [];
-
+  Future<bool> fetchHistory(int msgId) async {
+    final list =
+        await cloudSDK.fetchMessageList(username: _currentChat, msgId: msgId);
     if (list.length == 0) {
       return false;
     } else {
@@ -84,11 +82,15 @@ class ChatService with ChangeNotifier {
   }
 
   void sendTextMessage(String content) {
-    // sendTextMessage(_currentChat, content);
+    cloudSDK.sendTextMessage(_currentChat, content);
+  }
+
+  void sendImageMessage(String name, String path) {
+    cloudSDK.sendImageMessage(name, path);
   }
 
   void sendVoiceMessage({String filePath, int voiceLength}) {
-    // sendVoiceMessage(_currentChat, filePath, voiceLength);
+    cloudSDK.sendVoiceMessage(_currentChat, filePath, voiceLength);
   }
 
   void receiveMessage(MessageEntity msg) {
@@ -97,7 +99,7 @@ class ChatService with ChangeNotifier {
       for (var i = 0; i < _chatMap[key].length; i++) {
         if (_chatMap[key][i].msgId == msg.msgId) {
           _chatMap[key][i] = msg;
-          return notifyListeners();
+          return refresh();
         }
       }
       _chatMap[key].insert(0, msg);
