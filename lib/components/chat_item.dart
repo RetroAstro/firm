@@ -28,11 +28,12 @@ class ChatItem extends StatelessWidget {
   }
 
   Widget buildAvatar() {
+    // chatitem.avatar == 'default' && !isSender
     return ClipRRect(
       borderRadius: BorderRadius.circular(6),
-      child: (chatitem.avatar == 'default' && !isSender)
+      child: (chatitem.avatar == 'default' || !isSender)
           ? Image.asset(
-              'assets/icon/default_avatar.png',
+              'assets/default_avatar.png',
               width: 42,
               height: 42,
               fit: BoxFit.cover,

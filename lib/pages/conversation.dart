@@ -21,42 +21,45 @@ class Conversation extends HookWidget {
       ),
       body: Column(
         children: <Widget>[
-          ListView.builder(
-            itemCount: state.conversations.length,
-            itemBuilder: (context, int index) {
-              return Slidable(
-                key: Key(
-                  'key_${state.conversations[index].conversationName.toString()}',
-                ),
-                child: ConversationItem(
-                  conversation: state.conversations[index],
-                  onConversationTapped: (context, value) {
-                    chatService.joinChat(
-                      state.conversations[index].conversationName,
-                      state.conversations[index].nickName,
-                    );
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Chat()),
-                    );
-                  },
-                  isActive: state.conversations[index].active,
-                ),
-                dismissal: SlidableDismissal(
-                  closeOnCanceled: false,
-                  dragDismissible: true,
-                  child: SlidableDrawerDismissal(),
-                  onWillDismiss: (actionType) {
-                    return false;
-                  },
-                  onDismissed: (_) {},
-                ),
-                actionPane: SlidableDrawerActionPane(),
-                actionExtentRatio: 0.2,
-                secondaryActions: [buildDeleteButton(index, state)],
-              );
-            },
-          ),
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: state.conversations.length,
+              itemBuilder: (context, int index) {
+                return Slidable(
+                  key: Key(
+                    'key_${state.conversations[index].conversationName.toString()}',
+                  ),
+                  child: ConversationItem(
+                    conversation: state.conversations[index],
+                    onConversationTapped: (context, value) {
+                      chatService.joinChat(
+                        state.conversations[index].conversationName,
+                        state.conversations[index].nickName,
+                      );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Chat()),
+                      );
+                    },
+                    isActive: state.conversations[index].active,
+                  ),
+                  dismissal: SlidableDismissal(
+                    closeOnCanceled: false,
+                    dragDismissible: true,
+                    child: SlidableDrawerDismissal(),
+                    onWillDismiss: (actionType) {
+                      return false;
+                    },
+                    onDismissed: (_) {},
+                  ),
+                  actionPane: SlidableDrawerActionPane(),
+                  actionExtentRatio: 0.2,
+                  secondaryActions: [buildDeleteButton(index, state)],
+                );
+              },
+            ),
+          )
         ],
       ),
     );

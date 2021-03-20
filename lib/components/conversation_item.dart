@@ -99,13 +99,13 @@ class ConversationItem extends StatelessWidget {
 
   Widget buildUnreadItem() {
     return Stack(
-      clipBehavior: Clip.hardEdge,
+      overflow: Overflow.visible,
       children: <Widget>[
         ClipRRect(
           borderRadius: BorderRadius.circular(6),
           child: conversation.avatar == 'default'
               ? Image.asset(
-                  'assets/icon/default.png',
+                  'assets/default_avatar.png',
                   width: 48,
                   height: 48,
                   fit: BoxFit.cover,
@@ -118,18 +118,21 @@ class ConversationItem extends StatelessWidget {
                 ),
         ),
         Positioned(
-          top: -6,
-          right: -6,
+          top: -3,
+          right: -3,
           child: !isActive && conversation.unreadCount != 0
               ? Container(
-                  width: 20,
-                  height: 20,
+                  width: 18,
+                  height: 18,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Color(AppColors.NotifyDotBg)),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Color(AppColors.NotifyDotBg),
+                  ),
                   child: Text(
-                    conversation.unreadCount.toString(),
+                    conversation.unreadCount > 99
+                        ? '...'
+                        : conversation.unreadCount.toString(),
                     style: TextStyle(fontSize: 12, color: Colors.white),
                   ),
                 )
