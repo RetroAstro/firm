@@ -1,27 +1,27 @@
 part of 'index.dart';
 
+enum FetchState {
+  init,
+  fetching,
+  success,
+  failed,
+  nomore,
+}
+
 class ChatService with ChangeNotifier {
   String _currentChat = '';
-  String _currentNickname = '';
-  Map<String, List<MessageEntity>> _chatMap = {};
-  bool _isChat = false;
-  bool _isFetching = false;
-
-  bool get isChat => _isChat;
-
-  bool get isFetching => _isFetching;
-
-  set isFetching(bool value) {
-    if (value != isFetching) {
-      _isFetching = value;
-      notifyListeners();
-    }
-  }
-
   String get currentChat => _currentChat;
 
+  String _currentNickname = '';
   String get currentNickname => _currentNickname;
 
+  FetchState _fetchState = FetchState.init;
+  FetchState get fetchState => _fetchState;
+
+  bool _isChat = false;
+  bool get isChat => _isChat;
+
+  Map<String, List<MessageEntity>> _chatMap = {};
   Map<String, List<MessageEntity>> get chatMap => _chatMap;
 
   void refresh() {
@@ -39,9 +39,9 @@ class ChatService with ChangeNotifier {
 
   void closeChat() {
     _isChat = false;
-    _isFetching = false;
     _currentChat = '';
     _currentNickname = '';
+    _fetchState = FetchState.init;
   }
 
   void clearChat() {
@@ -62,22 +62,29 @@ class ChatService with ChangeNotifier {
 
   Future fetchMessageList() async {
     if (_chatMap[_currentChat] != null && _chatMap[_currentChat].isEmpty) {
-      isFetching = true;
       final list = await cloudSDK.fetchMessageList(username: _currentChat);
-      isFetching = false;
       _chatMap[_currentChat].addAll(list);
     }
   }
 
-  Future<bool> fetchHistory(int msgId) async {
-    final list =
-        await cloudSDK.fetchMessageList(username: _currentChat, msgId: msgId);
-    if (list.length == 0) {
-      return false;
-    } else {
-      _chatMap[_currentChat].addAll(list);
-      refresh();
-      return true;
+  Future<void> fetchHistory(int msgId) async {
+    if (_fetchState == FetchState.fetching ||
+        _fetchState == FetchState.nomore) {
+      return;
+    }
+    _fetchState = FetchState.fetching;
+    try {
+      final list =
+          await cloudSDK.fetchMessageList(username: _currentChat, msgId: msgId);
+      _fetchState = FetchState.success;
+      if (list.isEmpty) {
+        _fetchState = FetchState.nomore;
+      } else {
+        _chatMap[_currentChat].addAll(list);
+        notifyListeners();
+      }
+    } catch (e) {
+      _fetchState = FetchState.failed;
     }
   }
 

@@ -24,7 +24,7 @@ class FirmApp extends StatelessWidget {
     return MaterialApp(
       title: 'firm',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: LoginPage(),
+      home: Conversation(),
     );
   }
 }

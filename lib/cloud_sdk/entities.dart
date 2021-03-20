@@ -17,7 +17,6 @@ class MessageEntity {
   int voiceLength;
   int msgId;
   int msgType;
-  int appMsgType;
   List<String> richTextList;
 
   MessageEntity({
@@ -37,7 +36,6 @@ class MessageEntity {
     @required this.voiceLength,
     @required this.msgId,
     @required this.msgType,
-    @required this.appMsgType,
     @required this.richTextList,
   });
 }
@@ -46,7 +44,6 @@ class ConversationEntity {
   String avatar;
   String userName;
   String nickName;
-  String defaultName;
   String conversationName;
   int msgType;
   String desc;
@@ -60,7 +57,6 @@ class ConversationEntity {
     @required this.avatar,
     @required this.userName,
     @required this.nickName,
-    @required this.defaultName,
     @required this.conversationName,
     @required this.msgType,
     @required this.desc,
