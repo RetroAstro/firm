@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:firm/constants/index.dart';
 import 'package:firm/cloud_sdk/index.dart';
@@ -130,15 +129,15 @@ Widget buildVoiceItem(MessageEntity chatitem) {
           Container(width: 10),
           chatitem.isSender
               ? text
-              : SvgPicture.asset(
-                  'assets/voice_left.svg',
+              : Image.asset(
+                  'assets/voice_left.png',
                   width: 16,
                   height: 16,
                   fit: BoxFit.cover,
                 ),
           chatitem.isSender
-              ? SvgPicture.asset(
-                  'assets/voice_right.svg',
+              ? Image.asset(
+                  'assets/voice_right.png',
                   width: 16,
                   height: 16,
                   fit: BoxFit.cover,

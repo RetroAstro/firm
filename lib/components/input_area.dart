@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:firm/constants/index.dart';
 
 class InputArea extends StatelessWidget {
@@ -33,8 +32,8 @@ class InputArea extends StatelessWidget {
           GestureDetector(
             child: Container(
               margin: EdgeInsets.only(right: 15),
-              child: SvgPicture.asset(
-                'assets/record.svg',
+              child: Image.asset(
+                'assets/record.png',
                 width: 30,
                 height: 30,
                 fit: BoxFit.cover,
@@ -73,25 +72,27 @@ class InputArea extends StatelessWidget {
             ),
           ),
           Container(width: 15),
-          Material(
-            color: Colors.white,
-            child: InkWell(
-              onTap: onMessageSended,
-              child: Container(
-                width: 70,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: AppColors.ChatButtonColor,
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  '发送',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
-                ),
+          GestureDetector(
+            child: Container(
+              child: Image.asset(
+                'assets/smile.png',
+                width: 30,
+                height: 30,
+                fit: BoxFit.cover,
               ),
             ),
-          )
+          ),
+          Container(width: 15),
+          GestureDetector(
+            child: Container(
+              child: Image.asset(
+                'assets/plus.png',
+                width: 30,
+                height: 30,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
         ],
       ),
     );
