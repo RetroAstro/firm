@@ -8,6 +8,7 @@ import 'package:firm/pages/register.dart';
 import 'package:firm/pages/login.dart';
 import 'package:firm/pages/conversation.dart';
 import 'package:firm/pages/mine.dart';
+import 'package:firm/pages/search.dart';
 
 void main() {
   runApp(FirmApp());
@@ -33,7 +34,7 @@ class FirmApp extends StatelessWidget {
       child: MaterialApp(
         title: 'firm',
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: User(),
+        home: Search(),
       ),
     );
   }
