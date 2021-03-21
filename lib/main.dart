@@ -1,3 +1,4 @@
+import 'package:firm/pages/user.dart';
 import 'package:flutter/material.dart';
 import 'package:leancloud_storage/leancloud.dart';
 import 'package:provider/provider.dart';
@@ -32,7 +33,7 @@ class FirmApp extends StatelessWidget {
       child: MaterialApp(
         title: 'firm',
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: Mine(),
+        home: User(),
       ),
     );
   }
