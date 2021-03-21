@@ -24,10 +24,6 @@ class ChatService with ChangeNotifier {
   Map<String, List<MessageEntity>> _chatMap = {};
   Map<String, List<MessageEntity>> get chatMap => _chatMap;
 
-  void refresh() {
-    notifyListeners();
-  }
-
   void openChat(String username, String nickname) {
     _isChat = true;
     _currentChat = username;
@@ -47,16 +43,15 @@ class ChatService with ChangeNotifier {
   void clearChat() {
     closeChat();
     _chatMap.clear();
-    refresh();
+    notifyListeners();
   }
 
   void joinChat(String conversationName, String nickName) {
-    if (chatService.currentChat != conversationName) {
-      chatService
-        ..stopVoice()
-        ..openChat(conversationName, nickName)
-        ..fetchMessageList()
-        ..refresh();
+    if (_currentChat != conversationName) {
+      stopVoice();
+      openChat(conversationName, nickName);
+      fetchMessageList();
+      notifyListeners();
     }
   }
 
@@ -106,11 +101,11 @@ class ChatService with ChangeNotifier {
       for (var i = 0; i < _chatMap[key].length; i++) {
         if (_chatMap[key][i].msgId == msg.msgId) {
           _chatMap[key][i] = msg;
-          return refresh();
+          return notifyListeners();
         }
       }
       _chatMap[key].insert(0, msg);
-      refresh();
+      notifyListeners();
     }
   }
 
