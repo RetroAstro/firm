@@ -14,6 +14,9 @@ class CloudSDK {
     avatar: 'default',
     userName: 'Alice',
     nickName: '王五',
+    company: 'xxx',
+    email: 'xxxx',
+    phone: '12313',
   );
 
   UserEntity get userInfo => _userInfo;
