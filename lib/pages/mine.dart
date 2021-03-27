@@ -7,51 +7,47 @@ class Mine extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final divider = Divider(height: 1, color: Color(AppColors.DividerColor));
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('个人信息'),
-        ),
-        body: Padding(
-          padding: EdgeInsets.all(10),
-          child: Column(
-            children: <Widget>[
-              GestureDetector(
-                onTap: () {},
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        '头像',
-                        style: TextStyle(
-                          color: AppColors.AppTextBColor,
-                          fontSize: 18,
-                        ),
-                      ),
-                      Image.asset(
-                        'assets/default_avatar.png',
-                        width: 50,
-                        height: 50,
-                        fit: BoxFit.cover,
-                      ),
-                    ],
+    return Padding(
+      padding: EdgeInsets.all(10),
+      child: Column(
+        children: <Widget>[
+          GestureDetector(
+            onTap: () {},
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    '头像',
+                    style: TextStyle(
+                      color: AppColors.AppTextBColor,
+                      fontSize: 18,
+                    ),
                   ),
-                ),
+                  Image.asset(
+                    'assets/default_avatar.png',
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.cover,
+                  ),
+                ],
               ),
-              divider,
-              buildItem(key: '昵称', value: 'xxxx', isEdit: true),
-              divider,
-              buildItem(key: '企业组织', value: 'xxxx', isEdit: true),
-              divider,
-              buildItem(key: '邮箱', value: 'xxxxxxx'),
-              divider,
-              buildItem(key: '电话', value: 'xxxxxxxxxx'),
-              divider,
-            ],
+            ),
           ),
-        ));
+          divider,
+          buildItem(key: '昵称', value: 'xxxx', isEdit: true),
+          divider,
+          buildItem(key: '企业组织', value: 'xxxx', isEdit: true),
+          divider,
+          buildItem(key: '邮箱', value: 'xxxxxxx'),
+          divider,
+          buildItem(key: '电话', value: 'xxxxxxxxxx'),
+          divider,
+        ],
+      ),
+    );
   }
 
   Widget buildItem({String key, String value, bool isEdit = false}) {

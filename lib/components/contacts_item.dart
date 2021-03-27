@@ -1,17 +1,23 @@
-import 'package:firm/constants/index.dart';
 import 'package:flutter/material.dart';
+import 'package:firm/cloud_sdk/index.dart';
+import 'package:firm/constants/index.dart';
 
 class ContactsItem extends StatelessWidget {
-  final Function handleTap;
+  final ContactsEntity contactsitem;
+  final Function(BuildContext context, ContactsEntity item) handleTap;
 
-  const ContactsItem({Key key, this.handleTap}) : super(key: key);
+  const ContactsItem({
+    Key key,
+    this.contactsitem,
+    this.handleTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: handleTap,
+      onTap: () => handleTap(context, contactsitem),
       child: Container(
-        padding: EdgeInsets.all(15),
+        height: 60,
         decoration: BoxDecoration(
           color: Colors.white,
           border: Border(
@@ -20,21 +26,28 @@ class ContactsItem extends StatelessWidget {
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Image.asset(
-                  'assets/default_avatar.png',
-                  width: 48,
-                  height: 48,
-                  fit: BoxFit.cover,
+                Container(width: 10),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(6),
+                  child: Image.network(
+                    contactsitem.avatar,
+                    width: 42,
+                    height: 42,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 Container(width: 15),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      '林不读',
+                      contactsitem.userName,
                       style: TextStyle(
                           color: AppColors.AppTextBColor, fontSize: 16),
                     ),
@@ -52,7 +65,6 @@ class ContactsItem extends StatelessWidget {
                 Container(
                   width: 10,
                   height: 10,
-                  color: Colors.blue,
                 ),
               ],
             ),

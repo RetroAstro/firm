@@ -1,3 +1,4 @@
+import 'package:firm/constants/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -27,8 +28,12 @@ class Edit extends HookWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(''),
+        title: Text(
+          '更改信息',
+          style: TextStyle(color: AppColors.AppTextBColor, fontSize: 20),
+        ),
         leading: Text(''),
+        backgroundColor: AppColors.AppBgColor,
       ),
       body: Column(
         children: <Widget>[

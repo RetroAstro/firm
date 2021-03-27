@@ -1,3 +1,4 @@
+import 'package:firm/constants/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
@@ -35,7 +36,11 @@ class LoginPage extends HookWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('登录'),
+        title: Text(
+          '登录',
+          style: TextStyle(color: AppColors.AppTextBColor),
+        ),
+        backgroundColor: AppColors.AppBgColor,
       ),
       body: Form(
         key: _formKey,
@@ -167,7 +172,11 @@ class PhoneLogin extends StatelessWidget {
   Widget buildVertification() {
     return Scaffold(
       appBar: AppBar(
-        title: Text('登录'),
+        title: Text(
+          '登录',
+          style: TextStyle(color: AppColors.AppTextBColor),
+        ),
+        backgroundColor: AppColors.AppBgColor,
       ),
       body: Column(
         children: <Widget>[
@@ -201,7 +210,11 @@ class PhoneLogin extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('登录'),
+        title: Text(
+          '登录',
+          style: TextStyle(color: AppColors.AppTextBColor),
+        ),
+        backgroundColor: AppColors.AppBgColor,
       ),
       body: Form(
         key: _formKey,

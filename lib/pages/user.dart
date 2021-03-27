@@ -10,7 +10,12 @@ class User extends HookWidget {
     return Scaffold(
       backgroundColor: AppColors.AppBgColor,
       appBar: AppBar(
-        title: Text(''),
+        iconTheme: IconThemeData(color: AppColors.AppTextBColor),
+        title: Text(
+          '',
+          style: TextStyle(color: AppColors.AppTextBColor),
+        ),
+        backgroundColor: AppColors.AppBgColor,
       ),
       body: Column(
         children: <Widget>[

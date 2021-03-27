@@ -13,5 +13,6 @@ class AppColors {
   static const TouchBarColor = Color.fromRGBO(211, 211, 211, 1);
   static const ChatButtonColor = Color.fromRGBO(7, 193, 96, 1);
   static const AppUrlMsgNicknameColor = Color.fromRGBO(75, 102, 160, 1);
+  static const AppPopMenuColor = Color.fromRGBO(36, 30, 48, 1);
   static const SidebarColor = Colors.black87;
 }

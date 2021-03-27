@@ -1,14 +1,9 @@
-import 'package:firm/pages/user.dart';
 import 'package:flutter/material.dart';
 import 'package:leancloud_storage/leancloud.dart';
 import 'package:provider/provider.dart';
 import 'package:firm/utils/load_config.dart';
 import 'package:firm/services/index.dart';
-import 'package:firm/pages/register.dart';
-import 'package:firm/pages/login.dart';
-import 'package:firm/pages/conversation.dart';
-import 'package:firm/pages/mine.dart';
-import 'package:firm/pages/search.dart';
+import 'package:firm/pages/home.dart';
 
 void main() {
   runApp(FirmApp());
@@ -30,11 +25,13 @@ class FirmApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(value: chatService),
         ChangeNotifierProvider.value(value: conversationService),
+        ChangeNotifierProvider.value(value: contactsService),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'firm',
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: Search(),
+        home: Home(),
       ),
     );
   }

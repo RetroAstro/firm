@@ -45,7 +45,12 @@ class Chat extends HookWidget {
     return WillPopScope(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(state.currentNickname),
+          iconTheme: IconThemeData(color: AppColors.AppTextBColor),
+          title: Text(
+            state.currentNickname,
+            style: TextStyle(color: AppColors.AppTextBColor),
+          ),
+          backgroundColor: AppColors.AppBgColor,
         ),
         body: Column(
           children: <Widget>[

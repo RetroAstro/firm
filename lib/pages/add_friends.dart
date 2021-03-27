@@ -4,14 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:firm/constants/index.dart';
 
-class Search extends HookWidget {
+class AddFriends extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final controller = useTextEditingController();
     return Scaffold(
       backgroundColor: AppColors.AppBgColor,
       appBar: AppBar(
-        title: Text('添加朋友'),
+        iconTheme: IconThemeData(color: AppColors.AppTextBColor),
+        title: Text(
+          '添加朋友',
+          style: TextStyle(color: AppColors.AppTextBColor),
+        ),
+        backgroundColor: AppColors.AppBgColor,
       ),
       body: Column(
         children: <Widget>[
@@ -41,7 +46,7 @@ class Search extends HookWidget {
               itemBuilder: (context, int index) {
                 return ContactsItem(
                   key: Key('key_$index'),
-                  handleTap: () {
+                  handleTap: (context, item) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (_) => User()),

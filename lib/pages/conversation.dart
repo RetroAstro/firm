@@ -1,3 +1,4 @@
+import 'package:firm/hooks/useAutomaticKeepAlive.dart';
 import 'package:firm/pages/chat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -9,59 +10,56 @@ import 'package:provider/provider.dart';
 class Conversation extends HookWidget {
   @override
   Widget build(BuildContext context) {
+    useAutomaticKeepAlive();
+
     final state = Provider.of<ConversationService>(context);
 
     useEffect(() {
       conversationService.fetchConversationList();
     }, []);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Firm APP'),
-      ),
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: state.conversations.length,
-              itemBuilder: (context, int index) {
-                return Slidable(
-                  key: Key(
-                    'key_${state.conversations[index].conversationName.toString()}',
-                  ),
-                  child: ConversationItem(
-                    conversation: state.conversations[index],
-                    onConversationTapped: (context, value) {
-                      chatService.joinChat(
-                        state.conversations[index].conversationName,
-                        state.conversations[index].nickName,
-                      );
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Chat()),
-                      );
-                    },
-                    isActive: state.conversations[index].active,
-                  ),
-                  dismissal: SlidableDismissal(
-                    closeOnCanceled: false,
-                    dragDismissible: true,
-                    child: SlidableDrawerDismissal(),
-                    onWillDismiss: (actionType) {
-                      return false;
-                    },
-                    onDismissed: (_) {},
-                  ),
-                  actionPane: SlidableDrawerActionPane(),
-                  actionExtentRatio: 0.2,
-                  secondaryActions: [buildDeleteButton(index, state)],
-                );
-              },
-            ),
-          )
-        ],
-      ),
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: state.conversations.length,
+            itemBuilder: (context, int index) {
+              return Slidable(
+                key: Key(
+                  'key_${state.conversations[index].conversationName.toString()}',
+                ),
+                child: ConversationItem(
+                  conversation: state.conversations[index],
+                  onConversationTapped: (context, value) {
+                    chatService.joinChat(
+                      state.conversations[index].conversationName,
+                      state.conversations[index].nickName,
+                    );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Chat()),
+                    );
+                  },
+                  isActive: state.conversations[index].active,
+                ),
+                dismissal: SlidableDismissal(
+                  closeOnCanceled: false,
+                  dragDismissible: true,
+                  child: SlidableDrawerDismissal(),
+                  onWillDismiss: (actionType) {
+                    return false;
+                  },
+                  onDismissed: (_) {},
+                ),
+                actionPane: SlidableDrawerActionPane(),
+                actionExtentRatio: 0.2,
+                secondaryActions: [buildDeleteButton(index, state)],
+              );
+            },
+          ),
+        )
+      ],
     );
   }
 
