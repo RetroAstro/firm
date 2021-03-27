@@ -1,3 +1,4 @@
+import 'package:firm/cloud_sdk/index.dart';
 import 'package:firm/components/contacts_item.dart';
 import 'package:firm/pages/user.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +47,11 @@ class AddFriends extends HookWidget {
               itemBuilder: (context, int index) {
                 return ContactsItem(
                   key: Key('key_$index'),
+                  contactsitem: ContactsEntity(
+                    userName: 'RetroAstro',
+                    avatar:
+                        'https://game.gtimg.cn/images/yxzj/img201606/heroimg/116/116.jpg',
+                  ),
                   handleTap: (context, item) {
                     Navigator.push(
                       context,
