@@ -11,9 +11,9 @@ class ConversationItem extends StatelessWidget {
 
   ConversationItem({
     Key key,
-    this.conversation,
-    this.onConversationTapped,
-    this.isActive,
+    @required this.conversation,
+    @required this.onConversationTapped,
+    @required this.isActive,
   }) : super(key: key);
 
   @override

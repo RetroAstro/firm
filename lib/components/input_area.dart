@@ -9,9 +9,9 @@ class InputArea extends StatelessWidget {
 
   InputArea({
     Key key,
-    this.controller,
-    this.onMessageSended,
-    this.focusNode,
+    @required this.controller,
+    @required this.onMessageSended,
+    @required this.focusNode,
   }) : super(key: key);
 
   @override

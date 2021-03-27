@@ -8,7 +8,10 @@ class ChatItem extends StatelessWidget {
 
   bool get isSender => chatitem?.isSender;
 
-  ChatItem({Key key, this.chatitem}) : super(key: key);
+  ChatItem({
+    Key key,
+    @required this.chatitem,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

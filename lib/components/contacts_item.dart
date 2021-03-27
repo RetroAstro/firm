@@ -8,8 +8,8 @@ class ContactsItem extends StatelessWidget {
 
   const ContactsItem({
     Key key,
-    this.contactsitem,
-    this.handleTap,
+    @required this.contactsitem,
+    @required this.handleTap,
   }) : super(key: key);
 
   @override

@@ -1,6 +1,7 @@
 import 'package:firm/cloud_sdk/index.dart';
 import 'package:firm/components/contacts_item.dart';
 import 'package:firm/hooks/useAutomaticKeepAlive.dart';
+import 'package:firm/pages/new_friends.dart';
 import 'package:firm/pages/user.dart';
 import 'package:firm/services/index.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,19 @@ class Contacts extends HookWidget {
             showIndexHint: false,
             itemHeight: _itemHeight.ceil(),
             suspensionHeight: _suspensionHeight.ceil(),
+            header: AzListViewHeader(
+              height: 60,
+              builder: (context) => GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => NewFriends()),
+                  );
+                },
+                child: _buildListHeader(),
+              ),
+            ),
             onSusTagChanged: (tag) {
               suspensionTag.value = tag;
             },
@@ -59,6 +73,30 @@ class Contacts extends HookWidget {
           ),
         )
       ],
+    );
+  }
+
+  Widget _buildListHeader() {
+    return SizedBox(
+      height: 60,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Container(width: 10),
+          Image.asset(
+            'assets/default_avatar.png',
+            width: 42,
+            height: 42,
+            fit: BoxFit.cover,
+          ),
+          Container(width: 15),
+          Text(
+            '新的朋友',
+            style: TextStyle(color: AppColors.AppTextBColor, fontSize: 16),
+          ),
+        ],
+      ),
     );
   }
 

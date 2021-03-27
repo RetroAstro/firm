@@ -10,7 +10,11 @@ class Edit extends HookWidget {
   final String label;
   final String initialValue;
 
-  Edit({Key key, this.label, this.initialValue}) : super(key: key);
+  Edit({
+    Key key,
+    @required this.label,
+    @required this.initialValue,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
