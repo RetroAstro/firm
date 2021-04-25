@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:firm/utils/load_config.dart';
 import 'package:firm/services/index.dart';
 import 'package:firm/pages/home.dart';
+import 'package:firm/pages/register.dart';
 
 void main() {
   runApp(FirmApp());
@@ -31,7 +32,7 @@ class FirmApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'firm',
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: Home(),
+        home: RegisterPage(),
       ),
     );
   }

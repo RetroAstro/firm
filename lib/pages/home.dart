@@ -18,6 +18,7 @@ class Home extends HookWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.AppBgColor,
+        leading: Text(''),
         title: Text(
           titleList[selectedIndex.value],
           style: TextStyle(color: AppColors.AppTextBColor),

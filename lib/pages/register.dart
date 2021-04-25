@@ -1,4 +1,5 @@
 import 'package:firm/constants/index.dart';
+import 'package:firm/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:firm/utils/util.dart';
@@ -35,12 +36,16 @@ class RegisterPage extends HookWidget {
 
   final RegisterInfo _registerInfo = RegisterInfo();
 
-  void handleSubmmited() {
+  void handleSubmmited(BuildContext context) {
     final form = _formKey.currentState;
     if (!form.validate()) {
       _autovalidateMode = AutovalidateMode.always;
     } else {
       form.save();
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Home()),
+      );
       print(
         '[User JSON]: ${_registerInfo.username} : ${_registerInfo.password} : ${_registerInfo.email} : ${_registerInfo.phone}',
       );
@@ -204,7 +209,7 @@ class RegisterPage extends HookWidget {
               sizedBoxSpace,
               Center(
                 child: ElevatedButton(
-                  onPressed: handleSubmmited,
+                  onPressed: () => handleSubmmited(context),
                   child: Text('确认'),
                 ),
               ),
