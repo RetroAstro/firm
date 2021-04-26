@@ -1,4 +1,5 @@
 import 'package:firm/constants/index.dart';
+import 'package:firm/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
@@ -18,12 +19,16 @@ class LoginPage extends HookWidget {
 
   final LoginInfo _loginInfo = LoginInfo();
 
-  void handleSubmmited() {
+  void handleSubmmited(BuildContext context) {
     final form = _formKey.currentState;
     if (!form.validate()) {
       _autovalidateMode = AutovalidateMode.always;
     } else {
       form.save();
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Home()),
+      );
     }
   }
 
@@ -119,7 +124,7 @@ class LoginPage extends HookWidget {
               sizedBoxSpace,
               Center(
                 child: ElevatedButton(
-                  onPressed: handleSubmmited,
+                  onPressed: () => handleSubmmited(context),
                   child: Text('确认'),
                 ),
               ),
@@ -163,13 +168,13 @@ class PhoneLogin extends StatelessWidget {
       form.save();
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => buildVertification()),
+        MaterialPageRoute(builder: (context) => buildVertification(context)),
         (route) => route == null,
       );
     }
   }
 
-  Widget buildVertification() {
+  Widget buildVertification(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -196,6 +201,10 @@ class PhoneLogin extends StatelessWidget {
             length: 6,
             onCompleted: (String value) {
               _phoneLoginInfo.smscode = value;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );
             },
             onEditing: (bool value) {},
           ),
