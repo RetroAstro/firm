@@ -57,7 +57,7 @@ class ChatService with ChangeNotifier {
 
   Future fetchMessageList() async {
     if (_chatMap[_currentChat] != null && _chatMap[_currentChat].isEmpty) {
-      final list = await cloudSDK.fetchMessageList(username: _currentChat);
+      final list = await cloudSDK.chat.fetchMessageList(username: _currentChat);
       _chatMap[_currentChat].addAll(list);
     }
   }
@@ -69,8 +69,8 @@ class ChatService with ChangeNotifier {
     }
     _fetchState = FetchState.fetching;
     try {
-      final list =
-          await cloudSDK.fetchMessageList(username: _currentChat, msgId: msgId);
+      final list = await cloudSDK.chat
+          .fetchMessageList(username: _currentChat, msgId: msgId);
       _fetchState = FetchState.success;
       if (list.isEmpty) {
         _fetchState = FetchState.nomore;
@@ -84,15 +84,15 @@ class ChatService with ChangeNotifier {
   }
 
   void sendTextMessage(String content) {
-    cloudSDK.sendTextMessage(_currentChat, content);
+    cloudSDK.chat.sendTextMessage(_currentChat, content);
   }
 
   void sendImageMessage(String name, String path) {
-    cloudSDK.sendImageMessage(name, path);
+    cloudSDK.chat.sendImageMessage(name, path);
   }
 
   void sendVoiceMessage({String filePath, int voiceLength}) {
-    cloudSDK.sendVoiceMessage(_currentChat, filePath, voiceLength);
+    cloudSDK.chat.sendVoiceMessage(_currentChat, filePath, voiceLength);
   }
 
   void receiveMessage(MessageEntity msg) {

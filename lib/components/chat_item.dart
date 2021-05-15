@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firm/constants/index.dart';
 import 'package:firm/cloud_sdk/index.dart';
+import 'package:firm/services/index.dart';
 import 'message_item.dart';
 
 class ChatItem extends StatelessWidget {
@@ -42,7 +43,7 @@ class ChatItem extends StatelessWidget {
               fit: BoxFit.cover,
             )
           : Image.network(
-              isSender ? cloudSDK.userInfo.avatar : chatitem.avatar,
+              isSender ? userService.userInfo.avatar : chatitem.avatar,
               width: 42,
               height: 42,
               fit: BoxFit.cover,

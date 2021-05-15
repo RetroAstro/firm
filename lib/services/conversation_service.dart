@@ -41,9 +41,9 @@ class ConversationService with ChangeNotifier {
 
   Future<void> fetchConversationList() async {
     _conversations = [];
-    final list = await cloudSDK.fetchConversationList();
+    final list = await cloudSDK.conversation.fetchConversationList();
     list.forEach((item) {
-      if (item.conversationName != cloudSDK.userInfo.userName) {
+      if (item.conversationName != userService.userInfo.userName) {
         _conversations.add(item);
       }
     });
@@ -51,14 +51,14 @@ class ConversationService with ChangeNotifier {
   }
 
   Future<void> removeConversation(int index, String conversationName) async {
-    await cloudSDK.deleteConversation(conversationName);
+    await cloudSDK.conversation.deleteConversation(conversationName);
     _conversations.removeAt(index);
     notifyListeners();
   }
 
   void markConversationRead(String username) {
     if (username.isNotEmpty) {
-      cloudSDK.markConversationRead(username);
+      cloudSDK.conversation.markConversationRead(username);
     }
   }
 
@@ -74,7 +74,7 @@ class ConversationService with ChangeNotifier {
   }
 
   void updateConversation(ConversationEntity conversation) {
-    if (conversation.conversationName == cloudSDK.userInfo.userName) {
+    if (conversation.conversationName == userService.userInfo.userName) {
       return;
     }
     if (conversation.unreadCount == 0) {
