@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firm/constants/index.dart';
 import 'package:firm/components/input_area.dart';
 import 'package:firm/components/chat_item.dart';
+import 'package:firm/pages/group_manage.dart';
 import 'package:firm/services/index.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:provider/provider.dart';
@@ -51,6 +52,22 @@ class Chat extends HookWidget {
             style: TextStyle(color: AppColors.AppTextBColor),
           ),
           backgroundColor: AppColors.AppBgColor,
+          actions: <Widget>[
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => GroupManage()),
+                );
+              },
+              child: Icon(
+                Icons.account_circle_outlined,
+                color: AppColors.AppTextBColor,
+                size: 30,
+              ),
+            ),
+            Container(width: 15)
+          ],
         ),
         body: Column(
           children: <Widget>[
